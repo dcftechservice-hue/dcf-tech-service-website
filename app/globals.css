@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+/* =========================================================
+   1. GLOBAL PAGE SETTINGS
+   General settings for the whole website.
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff;
+}
+
+
+
+/* =========================================================
+   2. HEADER / BANNER
+   ========================================================= */
+
+.site-header {
+  width: 100%;
+  height: 160px;
+
+  /* Banner image */
+  background-image: url("/img/DCF_Banner.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Header positioning */
+  display: flex;
+  align-items: center;
+  padding-left: 40px;
+  overflow: hidden;
+}
+
+
+
+/* =========================================================
+   3. LOGO
+   Controls only the logo image.
+   ========================================================= */
+
+.site-logo {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   4. BUSINESS NAME
+   Controls the text next to the logo.
+   ========================================================= */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+  color: #333333;
+}
+
+
+/* =========================================================
+   5. NAVIGATION BAR
+   Controls the bar underneath the header.
+   ========================================================= */
+
+.navigation {
+  width: 100%;
+  height: 55px;
+
+  background-color: #333333;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  padding-left: 40px;
+  gap: 35px;
+
+  /* Keeps navigation at the top when scrolling */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+
+/* =========================================================
+   6. NAVIGATION LINKS
+   Controls the individual page links.
+   ========================================================= */
+
+.navigation a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.navigation a:hover {
+  color: #bbbbbb;
+}
+
+
+/* =========================================================
+   7. MAIN PAGE CONTENT
+   Currently left blank for future development.
+   ========================================================= */
+
+.page-content {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+
+/* =========================================================
+   END OF STYLESHEET
+   Each section above controls a separate part of the site.
+   ========================================================= */
