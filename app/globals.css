@@ -1,36 +1,14 @@
+
 @import "tailwindcss";
 
+/* =========================================================
+   1. GLOBAL SETTINGS
+   ========================================================= */
+
 :root {
-  --background: #ffffff;
+  --background: #e9e9e9;
   --foreground: #171717;
 }
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-
-
-/* =========================================================
-   1. GLOBAL PAGE SETTINGS
-   General settings for the whole website.
-   ========================================================= */
 
 * {
   box-sizing: border-box;
@@ -42,9 +20,9 @@ body {
   padding: 0;
   width: 100%;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #ffffff;
+  background-color: var(--background);
+  color: var(--foreground);
 }
-
 
 
 /* =========================================================
@@ -55,13 +33,11 @@ body {
   width: 100%;
   height: 160px;
 
-  /* Banner image */
   background-image: url("/img/DCF_Banner8.png");
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
 
-  /* Header positioning */
   display: flex;
   align-items: center;
   padding-left: 40px;
@@ -69,10 +45,8 @@ body {
 }
 
 
-
 /* =========================================================
    3. LOGO
-   Controls only the logo image.
    ========================================================= */
 
 .site-logo {
@@ -85,8 +59,7 @@ body {
 
 
 /* =========================================================
-   4. BUSINESS NAME
-   Controls the text next to the logo.
+   4. BUSINESS BRAND
    ========================================================= */
 
 .brand {
@@ -105,13 +78,11 @@ body {
 
 /* =========================================================
    5. NAVIGATION BAR
-   Controls the bar underneath the header.
    ========================================================= */
 
 .navigation {
   width: 100%;
   height: 55px;
-
   background-color: #333333;
 
   display: flex;
@@ -121,7 +92,6 @@ body {
   padding-left: 40px;
   gap: 35px;
 
-  /* Keeps navigation at the top when scrolling */
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -130,7 +100,6 @@ body {
 
 /* =========================================================
    6. NAVIGATION LINKS
-   Controls the individual page links.
    ========================================================= */
 
 .navigation a {
@@ -138,6 +107,7 @@ body {
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
+  white-space: nowrap;
   transition: color 0.2s ease;
 }
 
@@ -147,18 +117,186 @@ body {
 
 
 /* =========================================================
-   7. MAIN PAGE CONTENT
-   Currently left blank for future development.
+   7. MAIN PAGE BACKGROUND
+   Controls the background behind the homepage sections.
    ========================================================= */
 
 .page-content {
   width: 100%;
   min-height: 100vh;
+  background-color: #e9e9e9;
+}
+
+.home-sections {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 45px 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+}
+
+
+/* =========================================================
+   8. HOMEPAGE FEATURE SECTIONS
+   Shared layout for each individual content section.
+   ========================================================= */
+
+.home-feature {
+  width: 100%;
+  min-height: 340px;
+  display: flex;
+  flex-direction: row;
+
   background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+}
+
+
+/* =========================================================
+   9. REVERSED HOMEPAGE SECTIONS
+   Changes the order of the image and text.
+   ========================================================= */
+
+.home-feature--reverse {
+  flex-direction: row-reverse;
+}
+
+
+/* =========================================================
+   10. HOMEPAGE TEXT PANEL
+   Controls only the text side of each section.
+   ========================================================= */
+
+.home-feature__text {
+  width: 36%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.home-feature__text h2 {
+  margin: 0 0 18px;
+  font-size: 30px;
+  line-height: 1.2;
+  color: #222222;
+}
+
+.home-feature__text p {
+  margin: 0 0 25px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #555555;
+}
+
+
+/* =========================================================
+   11. HOMEPAGE BUTTONS
+   ========================================================= */
+
+.home-feature__button {
+  display: inline-block;
+  padding: 12px 22px;
+
+  background-color: #333333;
+  color: #ffffff;
+
+  border-radius: 7px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+
+  transition: background-color 0.2s ease;
+}
+
+.home-feature__button:hover {
+  background-color: #555555;
+}
+
+
+/* =========================================================
+   12. HOMEPAGE IMAGE PANEL
+   Controls only the image side of each section.
+   ========================================================= */
+
+.home-feature__image {
+  width: 64%;
+  min-width: 0;
+  min-height: 340px;
+  overflow: hidden;
+  background-color: #d5d5d5;
+}
+
+.home-feature__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 340px;
+  object-fit: cover;
+}
+
+
+/* =========================================================
+   13. TABLET AND MOBILE LAYOUT
+   Keeps sections readable on smaller screens.
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .home-sections {
+    padding: 30px 20px;
+    gap: 30px;
+  }
+
+  .home-feature__text {
+    padding: 25px;
+  }
+
+  .home-feature__text h2 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 650px) {
+  .navigation {
+    padding-left: 15px;
+    gap: 24px;
+    overflow-x: auto;
+  }
+
+  .home-sections {
+    padding: 20px 15px;
+    gap: 25px;
+  }
+
+  .home-feature,
+  .home-feature--reverse {
+    flex-direction: column;
+  }
+
+  .home-feature__text,
+  .home-feature__image {
+    width: 100%;
+  }
+
+  .home-feature__text {
+    padding: 25px;
+  }
+
+  .home-feature__image,
+  .home-feature__image img {
+    min-height: 230px;
+    height: 230px;
+  }
 }
 
 
 /* =========================================================
    END OF STYLESHEET
-   Each section above controls a separate part of the site.
    ========================================================= */
