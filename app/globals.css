@@ -56,8 +56,8 @@ body {
   height: 160px;
 
   /* Banner image */
-  background-image: url("/img/DCF_Banner.png");
-  background-size: cover;
+  background-image: url("/img/DCF_Banner8.png");
+  background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
 
