@@ -300,3 +300,1223 @@ body {
 /* =========================================================
    END OF STYLESHEET
    ========================================================= */
+
+
+
+/* =========================================================
+   ALL SERVICES PAGE
+   Everything below controls ONLY the All Services page.
+   ========================================================= */
+
+
+
+/* ======================================================
+   14. ALL SERVICES PAGE
+====================================================== */
+
+.all-services-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 35px 35px 70px;
+  background: #e9e9e9;
+}
+
+
+/* ======================================================
+   15. ALL SERVICES PAGE HEADING
+====================================================== */
+
+.services-intro {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto 35px;
+  text-align: center;
+}
+
+.services-intro h1 {
+  margin: 0;
+  color: #333;
+  font-size: 36px;
+  font-weight: 600;
+}
+
+
+/* ======================================================
+   16. CATEGORY QUICK NAVIGATION
+====================================================== */
+
+.services-subnav {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 50px;
+  padding: 12px 18px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.services-subnav a {
+  display: block;
+  padding: 9px 14px;
+  color: #444;
+  background: #ededed;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.services-subnav a:hover {
+  color: #fff;
+  background: #444;
+}
+
+
+/* ======================================================
+   17. SERVICE CATEGORY LAYOUT
+   Scroll offset keeps the category heading visible.
+====================================================== */
+
+.services-categories {
+  width: 100%;
+  max-width: 1450px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 65px;
+}
+
+.services-category {
+  width: 100%;
+  scroll-margin-top: 35px;
+}
+
+
+/* ======================================================
+   18. CATEGORY HEADINGS
+====================================================== */
+
+.services-category h2 {
+  margin: 0 0 22px;
+  color: #333;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+
+/* ======================================================
+   19. SERVICE TILE GRID
+====================================================== */
+
+.services-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+
+/* ======================================================
+   20. SERVICE TILE BASE
+====================================================== */
+
+.service-tile {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #cfcfcf;
+  border-radius: 7px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* ======================================================
+   21. SERVICE TILE IMAGE
+====================================================== */
+
+.service-tile__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #cfcfcf;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: transform 0.35s ease;
+}
+
+.service-tile:hover .service-tile__image {
+  transform: scale(1.04);
+}
+
+
+/* ======================================================
+   22. SERVICE TILE BOTTOM BAR
+   CSS Grid centres the title in the exact middle.
+====================================================== */
+
+.service-tile__overlay {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 62px;
+  padding: 5px 15px;
+  display: grid;
+  grid-template-rows: 1fr;
+  place-items: center;
+  overflow: hidden;
+  background: rgba(75, 75, 75, 0.92);
+  text-align: center;
+  transition:
+    height 0.3s ease,
+    background 0.3s ease,
+    padding 0.3s ease;
+}
+
+
+/* ======================================================
+   23. SERVICE TILE TITLE
+====================================================== */
+
+.service-tile__overlay h3 {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: block;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: center;
+}
+
+
+/* ======================================================
+   24. SERVICE TILE DESCRIPTION
+====================================================== */
+
+.service-tile__overlay p {
+  max-width: 95%;
+  margin: 0;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease;
+}
+
+
+/* ======================================================
+   25. SERVICE TILE HOVER EFFECT
+====================================================== */
+
+.service-tile:hover .service-tile__overlay {
+  height: 100%;
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(45, 45, 45, 0.94);
+}
+
+.service-tile:hover .service-tile__overlay h3 {
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.service-tile:hover .service-tile__overlay p {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* ======================================================
+   26. SERVICE TILE KEYBOARD ACCESSIBILITY
+====================================================== */
+
+.service-tile:focus-visible {
+  outline: 3px solid #333;
+  outline-offset: 4px;
+}
+
+.service-tile:focus-visible .service-tile__overlay {
+  height: 100%;
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(45, 45, 45, 0.94);
+}
+
+.service-tile:focus-visible .service-tile__overlay h3 {
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.service-tile:focus-visible .service-tile__overlay p {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* ======================================================
+   27. TABLET LAYOUT
+====================================================== */
+
+@media (max-width: 950px) {
+  .all-services-page {
+    padding: 30px 25px 60px;
+  }
+
+  .services-subnav {
+    width: 100%;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* ======================================================
+   28. MOBILE LAYOUT
+====================================================== */
+
+@media (max-width: 550px) {
+  .all-services-page {
+    padding: 25px 15px 45px;
+  }
+
+  .services-intro h1 {
+    font-size: 29px;
+  }
+
+  .services-subnav {
+    gap: 7px;
+    padding: 10px;
+  }
+
+  .services-subnav a {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .services-categories {
+    gap: 45px;
+  }
+
+  .services-category h2 {
+    margin-bottom: 17px;
+    font-size: 23px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .service-tile__overlay h3 {
+    font-size: 18px;
+  }
+}
+
+/* ======================================================
+   END OF ALL SERVICES PAGE CSS
+====================================================== */
+
+
+/* ======================================================
+   29. REPAIRS PAGE
+   Main page background and layout
+====================================================== */
+
+.repairs-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 40px 35px 80px;
+  background: #e9e9e9;
+}
+
+
+/* ======================================================
+   30. REPAIRS INTRODUCTION
+====================================================== */
+
+.repairs-intro {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto 45px;
+  text-align: center;
+}
+
+.repairs-intro h1 {
+  margin: 0 0 12px;
+  color: #333;
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.repairs-intro p {
+  margin: 0;
+  color: #666;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+
+/* ======================================================
+   31. REPAIR PROCESS SECTION
+====================================================== */
+
+.repair-process {
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto 65px;
+  padding: 35px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+}
+
+.repair-process > h2 {
+  margin: 0 0 30px;
+  color: #333;
+  font-size: 28px;
+  text-align: center;
+}
+
+
+/* ======================================================
+   32. REPAIR PROCESS STEPS
+====================================================== */
+
+.repair-process__steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.repair-step {
+  padding: 22px 18px;
+  background: #f0f0f0;
+  border-radius: 6px;
+}
+
+.repair-step__number {
+  display: block;
+  margin-bottom: 15px;
+  color: #777;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.repair-step h3 {
+  margin: 0 0 12px;
+  color: #333;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.repair-step p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+
+/* ======================================================
+   33. REPAIR PROCESS NOTE
+====================================================== */
+
+.repair-process__note {
+  margin-top: 25px;
+  padding: 20px 24px;
+  background: #e8e8e8;
+  border-left: 4px solid #555;
+  border-radius: 4px;
+}
+
+.repair-process__note h3 {
+  margin: 0 0 7px;
+  color: #333;
+  font-size: 17px;
+}
+
+.repair-process__note p {
+  margin: 0;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+
+/* ======================================================
+   34. REPAIR REQUEST SECTION
+====================================================== */
+
+.repair-request {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+}
+
+.repair-request__heading {
+  margin-bottom: 35px;
+  text-align: center;
+}
+
+.repair-request__heading h2 {
+  margin: 0 0 10px;
+  color: #333;
+  font-size: 28px;
+}
+
+.repair-request__heading p {
+  margin: 0;
+  color: #666;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+
+/* ======================================================
+   35. REPAIR FORM SECTIONS
+====================================================== */
+
+.repair-form {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.repair-form__section {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #ddd;
+}
+
+.repair-form__section h3 {
+  margin: 0;
+  color: #333;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+
+/* ======================================================
+   36. REPAIR FORM INPUT FIELDS
+====================================================== */
+
+.repair-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.repair-form__field label {
+  color: #444;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.repair-form__field input,
+.repair-form__field select,
+.repair-form__field textarea {
+  width: 100%;
+  padding: 13px 14px;
+  color: #333;
+  background: #f7f7f7;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.repair-form__field input:focus,
+.repair-form__field select:focus,
+.repair-form__field textarea:focus {
+  background: #fff;
+  border-color: #555;
+}
+
+.repair-form__field textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+
+/* ======================================================
+   37. DELIVERY METHOD OPTIONS
+====================================================== */
+
+.repair-form__radio-group {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.repair-form__radio-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 18px;
+  background: #f3f3f3;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.repair-form__radio-option input {
+  margin-top: 4px;
+  accent-color: #444;
+}
+
+.repair-form__radio-option span {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.repair-form__radio-option strong {
+  color: #333;
+  font-size: 15px;
+}
+
+.repair-form__radio-option small {
+  color: #666;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.repair-form__hint {
+  margin: -5px 0 0;
+  color: #777;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+
+/* ======================================================
+   38. FORM SUBMISSION
+====================================================== */
+
+.repair-form__submit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.repair-form__submit button {
+  min-width: 220px;
+  padding: 15px 28px;
+  color: #fff;
+  background: #444;
+  border: none;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.repair-form__submit button:hover {
+  background: #222;
+}
+
+.repair-form__message {
+  margin: 0;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+
+/* ======================================================
+   39. REPAIRS PAGE TABLET LAYOUT
+====================================================== */
+
+@media (max-width: 950px) {
+  .repairs-page {
+    padding: 35px 25px 65px;
+  }
+
+  .repair-process__steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .repair-request {
+    padding: 30px;
+  }
+}
+
+
+/* ======================================================
+   40. REPAIRS PAGE MOBILE LAYOUT
+====================================================== */
+
+@media (max-width: 550px) {
+  .repairs-page {
+    padding: 25px 15px 45px;
+  }
+
+  .repairs-intro h1 {
+    font-size: 29px;
+  }
+
+  .repair-process {
+    padding: 25px 18px;
+  }
+
+  .repair-process > h2,
+  .repair-request__heading h2 {
+    font-size: 24px;
+  }
+
+  .repair-process__steps {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .repair-step {
+    padding: 20px;
+  }
+
+  .repair-request {
+    padding: 25px 18px;
+  }
+
+  .repair-form__radio-group {
+    grid-template-columns: 1fr;
+  }
+
+  .repair-form__submit button {
+    width: 100%;
+  }
+}
+
+/* ======================================================
+   END OF REPAIRS PAGE CSS
+====================================================== */
+
+
+/* ======================================================
+   41. SOFTWARE PAGE
+   Main page background and layout
+====================================================== */
+
+.software-page {
+  width: 100%;
+  min-height: 100vh;
+  padding-bottom: 80px;
+  background: #e9e9e9;
+}
+
+
+/* ======================================================
+   42. SOFTWARE HERO BANNER
+====================================================== */
+
+.software-hero {
+  width: 100%;
+  min-height: 340px;
+  padding: 55px 8%;
+  display: flex;
+  align-items: center;
+  background: #3d3d3d;
+  color: #fff;
+}
+
+.software-hero__content {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.software-hero__eyebrow {
+  display: block;
+  margin-bottom: 15px;
+  color: #c8c8c8;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.software-hero h1 {
+  margin: 0 0 18px;
+  color: #fff;
+  font-size: 44px;
+  font-weight: 600;
+}
+
+.software-hero p {
+  max-width: 650px;
+  margin: 0 0 28px;
+  color: #e0e0e0;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.software-hero__button {
+  display: inline-block;
+  padding: 13px 24px;
+  color: #333;
+  background: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.software-hero__button:hover {
+  color: #fff;
+  background: #777;
+}
+
+
+/* ======================================================
+   43. SOFTWARE INFORMATION SECTION
+====================================================== */
+
+.software-information {
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 65px 35px 55px;
+}
+
+.software-information__heading {
+  max-width: 750px;
+  margin: 0 auto 35px;
+  text-align: center;
+}
+
+.software-information__heading h2 {
+  margin: 0 0 12px;
+  color: #333;
+  font-size: 29px;
+}
+
+.software-information__heading p {
+  margin: 0;
+  color: #666;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+
+/* ======================================================
+   44. SOFTWARE INFORMATION CARDS
+====================================================== */
+
+.software-information__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.software-info-card {
+  padding: 25px;
+  background: #fff;
+  border-radius: 5px;
+  border-bottom: 3px solid #777;
+}
+
+.software-info-card__number {
+  display: block;
+  margin-bottom: 18px;
+  color: #999;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.software-info-card h3 {
+  margin: 0 0 12px;
+  color: #333;
+  font-size: 18px;
+}
+
+.software-info-card p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+
+/* ======================================================
+   45. ON-SITE SUPPORT INFORMATION
+====================================================== */
+
+.software-location {
+  margin-top: 25px;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+  gap: 30px;
+  background: #d8d8d8;
+  border-radius: 5px;
+}
+
+.software-location__text h3 {
+  margin: 0 0 12px;
+  color: #333;
+  font-size: 20px;
+}
+
+.software-location__text p {
+  margin: 0 0 10px;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.software-location__text p:last-child {
+  margin-bottom: 0;
+}
+
+.software-location__side {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #444;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.software-location__side span {
+  color: #ccc;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.software-location__side strong {
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+
+/* ======================================================
+   46. SOFTWARE REQUEST SECTION
+====================================================== */
+
+.software-request {
+  width: calc(100% - 70px);
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 40px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+}
+
+.software-request__heading {
+  margin-bottom: 35px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #ddd;
+}
+
+.software-request__heading > span {
+  display: block;
+  margin-bottom: 10px;
+  color: #777;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.software-request__heading h2 {
+  margin: 0 0 10px;
+  color: #333;
+  font-size: 29px;
+}
+
+.software-request__heading p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+
+/* ======================================================
+   47. SOFTWARE FORM LAYOUT
+====================================================== */
+
+.software-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.software-form__section {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #ddd;
+}
+
+.software-form__section h3 {
+  margin: 0;
+  color: #333;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+
+/* ======================================================
+   48. SOFTWARE FORM INPUTS
+====================================================== */
+
+.software-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.software-form__field label {
+  color: #444;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.software-form__field input,
+.software-form__field select,
+.software-form__field textarea {
+  width: 100%;
+  padding: 13px 14px;
+  color: #333;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.software-form__field input:focus,
+.software-form__field select:focus,
+.software-form__field textarea:focus {
+  background: #fff;
+  border-color: #555;
+}
+
+.software-form__field textarea {
+  min-height: 170px;
+  resize: vertical;
+}
+
+.software-form__field small {
+  color: #777;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+
+/* ======================================================
+   49. SOFTWARE SUPPORT PREFERENCE OPTIONS
+====================================================== */
+
+.software-form__support-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.software-support-option {
+  min-height: 105px;
+  padding: 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #f3f3f3;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.software-support-option.is-selected {
+  background: #ededed;
+  border-color: #555;
+}
+
+.software-support-option input {
+  margin-top: 4px;
+  accent-color: #444;
+}
+
+.software-support-option span {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.software-support-option strong {
+  color: #333;
+  font-size: 15px;
+}
+
+.software-support-option small {
+  color: #666;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+
+/* ======================================================
+   50. SOFTWARE FORM SUBMISSION
+====================================================== */
+
+.software-form__submit {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.software-form__submit button {
+  min-width: 220px;
+  padding: 15px 25px;
+  color: #fff;
+  background: #444;
+  border: none;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.software-form__submit button:hover {
+  background: #222;
+}
+
+.software-form__submit p {
+  margin: 0;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* ======================================================
+   51. SOFTWARE PAGE TABLET LAYOUT
+====================================================== */
+
+@media (max-width: 950px) {
+  .software-hero {
+    min-height: 310px;
+    padding: 45px 7%;
+  }
+
+  .software-information {
+    padding: 50px 25px;
+  }
+
+  .software-information__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .software-location {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ======================================================
+   52. SOFTWARE PAGE MOBILE LAYOUT
+====================================================== */
+
+@media (max-width: 550px) {
+  .software-page {
+    padding-bottom: 45px;
+  }
+
+  .software-hero {
+    min-height: 300px;
+    padding: 40px 22px;
+  }
+
+  .software-hero h1 {
+    font-size: 33px;
+  }
+
+  .software-hero p {
+    font-size: 14px;
+  }
+
+  .software-information {
+    padding: 40px 15px;
+  }
+
+  .software-information__heading h2 {
+    font-size: 25px;
+  }
+
+  .software-information__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .software-location {
+    padding: 22px;
+  }
+
+  .software-request {
+    width: calc(100% - 30px);
+    padding: 25px 18px;
+  }
+
+  .software-request__heading h2 {
+    font-size: 25px;
+  }
+
+  .software-form__support-options {
+    grid-template-columns: 1fr;
+  }
+
+  .software-form__submit button {
+    width: 100%;
+  }
+}
+
+/* ======================================================
+   END OF SOFTWARE PAGE CSS
+====================================================== */
